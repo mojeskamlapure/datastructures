@@ -1,0 +1,255 @@
+Recursion:
+	Technically its not a algorithm ,Its a concept .
+	Its a way of refering to itself i.e. funcion calling itself within a funtion.
+	A task that does repeated steps.
+	
+	Stack Overflow: 
+		When funcion calls itself and there is no way where funtion comes returns causes stack overflow.
+		Each function calls allocates some memory in stack and when there is no space left on memory then its stack overflow.
+		There should be a flow where the function no more calls itself but returns simply.
+		
+	Rules to Implement Recursion.
+		1. Identify the base case i.e. when to stop
+		2. Identify the recursive case i.e. when to call the method again
+		3.  Move closer to closer from recursive case to base case
+		In both the cases we must have return statements
+	
+	Recursive function always has exponential time complexity i.e. O(2^n) for size of n
+		//O( 2^n) Exponential with the help of dynamic prog. this can be converted to O(n)
+	
+	Anything we do with recursion can be done with iteratively(loops) the help of dynamic programming.
+	
+	Pros: code maintainability and readability
+	
+	cons: huge stack i.e. requires huge memory
+	
+	What is Tail call optimization in java scipt ?
+		enables recusion to be called without increasing the call stack.
+	
+	When to Use Recursion ?	
+		Recursion should be used with DS in case if you are not sure about how deep they are like Trees/Graphs
+		Everytime if we are to use a tree or convert something into a tree , consider recursion.
+		
+			1. Divided into number of sub problems that are smaller instances of the same problems
+			2. Each instance of the problem is identical in nature 
+			3. solution of each sub problem can be combined to solve the main problem i.e. Divide and Conquer using recursion
+			
+Sorting:
+	Elementary Sort:Bubble, Insertion, Selection
+		Bubble Sort:
+			Bubbles up the highest number to the last
+			simplest but least efficient 
+			implemented using nested loops
+			
+			Big O : 	  Time			    Space
+					best   avg    worst	    worst
+					O(n)  O(n^2)  O(n^2)     O(1)
+					
+		Selection Sort:
+			assumes the current element as smallest and then swaps with the real smallest 
+			simplest but least efficient 
+			implemented using nested loops
+			
+			Big O : 	  Time			    Space
+					best   avg    worst	    worst
+					O(n^2)  O(n^2)  O(n^2)     O(1)
+					
+		Insertion Sort:
+			This is efficient if the list is almost sorted
+			Good for small dataset
+			
+			Big O : 	  Time			    Space
+					best   avg    worst	    worst
+					O(n)  O(n^2)  O(n^2)     O(1)
+		
+	Divide and Conquer Sorts: Merge and Quick
+		Big O (n Log n) where 
+			O(n) is,  we are still comparing each items and
+			O(log n) is like the height of the tree.
+					
+		Merge Sort:
+			comparison happens with its local list not like one to one comparison as that of elementary sorts.
+					
+			Big O : 	  		Time			           	Space
+					best          avg         worst	    	worst
+					O(n log n)  O(n log n)  O(n log n)      O(n)		
+					
+	
+	Stable vs Unstable Sorts:
+		https://stackoverflow.com/questions/1517793/what-is-stability-in-sorting-algorithms-and-why-is-it-important
+		
+		A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in the input array to be sorted. Some sorting algorithms are stable by nature like Insertion sort, Merge Sort, Bubble Sort, etc. And some sorting algorithms are not, like Heap Sort, Quick Sort, etc.
+
+		Background: a "stable" sorting algorithm keeps the items with the same sorting key in order. 
+		Suppose we have a list of 5-letter words:
+
+			peach
+			straw
+			apple
+			spork
+		If we sort the list by just the first letter of each word then a stable-sort would produce:
+
+			apple
+			peach
+			straw
+			spork
+		In an unstable sort algorithm, straw or spork may be interchanged, but in a stable one, they stay in the same relative positions (that is, since straw appears before spork in the input, it also appears before spork in the output).
+
+		We could sort the list of words using this algorithm: stable sorting by column 5, then 4, then 3, then 2, then 1. In the end, it will be correctly sorted. Convince yourself of that. (by the way, that algorithm is called radix sort)
+
+		Now to answer your question, suppose we have a list of first and last names. We are asked to sort "by last name, then by first". We could first sort (stable or unstable) by the first name, then stable sort by the last name. After these sorts, the list is primarily sorted by the last name. However, where last names are the same, the first names are sorted.
+
+		You can't stack unstable sorts in the same fashion.
+		
+	Quick sort:
+		pivot element has to be selected i.e. its generally last item in the list.
+		swap all the elements greater than pivot , to its right so that pivot can be placed in a right position.
+		then again divide the list as
+		 0,pivot-1 and  --> this sub list will have pivot-1 as new pivot
+		 pivot+1,last and --> this sub list will have last as new pivot
+		 
+		 Big O : 	  		Time			           	   Space
+					best          avg         worst	    	worst
+					O(n log n)  O(n log n)     O(n^2)      O(log n)	
+					
+		Worst time complexity in case pivot is the smallest or largest element
+		
+	Heap Sort:
+	
+		one can think of heap sort if worried of Quick Sort's worst case time complexity and space comlexity.
+		
+	
+		 Big O : 	  		Time			           	        Space
+					best          avg         worst	    	    worst
+					O(n log n)  O(n log n)     O(n log n)      O(1)	
+					
+					
+		
+		
+	
+	Rules to Use sort:
+	
+		Insertion Sort:
+			Only few items , list is small or elements are almost sorted.
+			Easy to implement
+		
+		Bubble / Selection Sort:
+			Rarely use Bubble sort generally used for educational learning purposes
+			
+		Merge Sort:
+			Uses Divide and Conquer
+			Time complexity is always O(n log n)
+			Fast
+			
+			In case of in-memory sorting , it can be expensive as its space complexity is O(n)
+			
+		Quick Sort:		
+			Uses Divide and Conquer
+			Time complexity for best and average case is O(n log n)
+			As Fast As Merge Sort but in case of worst case i.e. if pivot is smallest or largest element then its O(n^2)
+			
+			its less expensive as compared to merge sort as its space complexity is O( log n)
+			
+			NOTE: Most of the time one can think of this. 
+			
+	
+	Why Quick is faster than heap ?
+	
+		https://stackoverflow.com/questions/2467751/quicksort-vs-heapsort
+		
+		
+		Heapsort is O(N log N) guaranted, what is much better than worst case in Quicksort. Heapsort doesn't need more memory for another array to putting ordered data as is needed by Mergesort. So why do comercial applications stick with Quicksort? What Quicksort has that is so special over others implementations?
+
+		I've tested the algorithms myself and I've seen that Quicksort has something special indeed. It runs fast, much faster than Heap and Merge algorithms.
+
+		The secret of Quicksort is: It almost doesn't do unnecessary element swaps. Swap is time consuming.
+
+		With Heapsort, even if all of your data is already ordered, you are going to swap 100% of elements to order the array.
+
+		With Mergesort, it's even worse. You are going to write 100% of elements in another array and write it back in the original one, even if data is already ordered.
+
+		With Quicksort you don't swap what is already ordered. If your data is completely ordered, you swap almost nothing! Although there is a lot of fussing about worst case, a little improvement on the choice of pivot, any other than getting the first or last element of array, can avoid it. If you get a pivot from the intermediate element between first, last and middle element, it is suficient to avoid worst case.
+
+		What is superior in Quicksort is not the worst case, but the best case! In best case you do the same number of comparisons, ok, but you swap almost nothing. In average case you swap part of the elements, but not all elements, as in Heapsort and Mergesort. That is what gives Quicksort the best time. Less swap, more speed.
+			
+		
+	Non Comparison sorts: 
+		Radix and Couning sort:
+			Only works with numbers specifically integers in a restricted range
+	
+	
+Searching:
+
+	Linear :
+		Linear time worst case search will be O(n) , which is ok but not fastest.
+		If List is sorted then there is  no gain in linear search as it will still be O(n).
+	
+	Binary:
+		If List is sorted then binary search will do better than O(n).
+	
+	BFS	:
+		Root --> all the immediate child nodes --> child nodes on next level
+		Visits the nodes as per the level they exist in from left to right
+		
+		One has to keep track of child nodes
+		
+	DFS:
+		Follows one branch of the tree as many levels as possible until target node is found or end is reached
+		Then continues till nearest ancestor with unexplored child
+		It has lower memory requirement than BFS , no need to save all the child nodes beforehand
+		
+	BFS Vs DFS:
+		- Time complexity is same i.e. O(n)
+		- BFS : shortest path closer nodes but requires more memory [suited for graph traversal]
+		- DFS : Less Memory but gets slow [suited to find if the path exist]
+				Three ways of implementing DFS Inorder , PreOrder and PostOrder
+				Inorder : used to sort get the nodes in sorted order
+				PreOrder: used in case of re-creating the tree
+	
+	Graphs:
+		Using BFS one can convert a Graph into Tree.
+		Backtracking is achieved with the help of recursion so DFS is being implemented using it.
+		
+	
+Shortest Path:
+	WIth DFS and BFS , we do not care about the weight rather we assume each path holds same weight.
+	
+	Shortest path problem for weighted graph can be solved using Dijkstra and Bellman-Ford algorithams.
+	Dijkstra:
+		more efficient and  less complexity
+		-ve weights can't be accomodated.		
+		
+	Bellman-Ford:
+		This algoritham outperforms Dijkstra's shortest path algo as it takes -ve weights into consideration.
+		O(n2)
+		less efficient and  more complexity
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+			
+			
+			
+		
+			
+			
+	
+	
+	
+	
+	
+	
+		
+		
+		
