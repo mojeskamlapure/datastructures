@@ -1,0 +1,54 @@
+Good code has to be both readable and scalable.
+	Big O termed as Big O Asymptotic Notation.
+        language used to tell how ong the algoritham takes to finish the takes / how slow it slows down
+	it should be perfomed with min operations
+	which function/algorithm/code is best 
+
+
+	Rule 1:	Worst Case:
+		Big O only cares about the worst case
+		
+	Rule 2: Remove Constants
+		Drop the constants , say if calculations say 
+			O(1+n/2+100) it will be considered as O(n)
+			O(n)+O(n) i.e. O(2n) it will be considered as O(n)
+
+	Rule 3: Different terms of inputs  [trickiest]
+		If our calculation says 
+			O(n) + O(m) then it will be considered as O(n+m)
+			In case of nested for loop with same array i.e. O(n*n) , will be considered as O(n^2)
+					
+
+	Rule 4: Drop Non Dominants
+
+		If calculation says 
+			O(n + n^2) then it will be considered as O(n^2)
+
+
+
+	linear time O(n): no of operations increases as the no of elements increases proportionatly--> where n is no.of elements/inputs
+	constant time O(1): irrespetive of any numbers of inputs/elements increased its going perform the to task in only one operation
+	factorial time O(n!) : Most expensive  Example : adding /having nested loop for every input
+
+Pillars of Programming:
+	Redable: clean , maintanable and easily understood 
+
+	Scalable:
+		Speed/Time Complexity ( CPU ):
+
+
+		Memory/Space Complexity ( RAM ):
+
+			causes : variable , data structures , function call and allocations
+
+			Heap: store variables
+
+			Stack: function calls
+
+
+"Premature optimization is the root of all evil"
+
+
+
+
+
